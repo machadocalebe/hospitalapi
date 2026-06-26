@@ -30,7 +30,7 @@ public class PacienteService {
     }
 
     public void remover(Long id) {
-        Paciente paciente = buscarPorId(id); // Garante o lançamento do 404 caso não exista
+        Paciente paciente = buscarPorId(id);
         repository.delete(paciente);
     }
 }

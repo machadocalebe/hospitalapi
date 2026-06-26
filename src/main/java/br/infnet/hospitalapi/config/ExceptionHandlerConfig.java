@@ -8,7 +8,7 @@ import org.springframework.web.server.ResponseStatusException;
 @ControllerAdvice
 public class ExceptionHandlerConfig {
 
-    // Captura as exceções lançadas nos Services e padroniza a resposta HTTP
+
     @ExceptionHandler(ResponseStatusException.class)
     public ResponseEntity<String> tratarErroDeStatus(ResponseStatusException ex) {
         return ResponseEntity.status(ex.getStatusCode()).body(ex.getReason());

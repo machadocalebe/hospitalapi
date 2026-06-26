@@ -14,12 +14,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Desabilitado para facilitar testes de APIs RESTful externos
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/actuator/health").permitAll() // Endpoint público exigido pela rubrica
-                        .anyRequest().authenticated() // Todos os outros endpoints exigem autenticação básica
+                        .requestMatchers("/actuator/health").permitAll()
+                        .anyRequest().authenticated()
                 )
-                .httpBasic(Customizer.withDefaults()); // Autenticação HTTP Basic ativa
+                .httpBasic(Customizer.withDefaults());
 
         return http.build();
     }
